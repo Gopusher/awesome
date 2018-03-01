@@ -1,2 +1,3 @@
-# awesome
-其它
+# Gopusher
+
+`Gopusher` 是一个实时推送服务。
