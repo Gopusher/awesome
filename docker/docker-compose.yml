@@ -1,0 +1,32 @@
+version: '3'
+services:
+    etcd-01:
+        image: quay.io/coreos/etcd:v3.3.1
+        ports:
+            - 2379:2379
+            - 2380:2380
+        environment:
+            - ETCDCTL_API=3
+        volumes:
+            - ${DATA_DIR}:/etcd-data
+        command:  >-
+            /usr/local/bin/etcd
+            --data-dir=/etcd-data
+            -name etcd-01
+            -advertise-client-urls http://${HOST_IP}:2379
+            -listen-client-urls http://0.0.0.0:2379
+            -initial-advertise-peer-urls http://${HOST_IP}:2380
+            -listen-peer-urls http://0.0.0.0:2380
+            -initial-cluster etcd-01=http://${HOST_IP}:2380
+
+    # 说明:
+    # port: 6379
+    # conf: /usr/local/etc/redis/redis.conf
+    redis:
+        image: redis:3.2
+        container_name: container-redis
+        restart: always
+        ports:
+            - 6379:6379
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
