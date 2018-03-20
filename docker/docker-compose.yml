@@ -19,10 +19,14 @@ services:
             -listen-peer-urls http://0.0.0.0:2380
             -initial-cluster etcd-01=http://${HOST_IP}:2380
 
-#    redis:
-#        image: redis:3.2
-#        restart: always
-#        ports:
-#            - 63791:6379
-#        volumes:
-#            - /etc/localtime:/etc/localtime:ro
+    # 说明:
+    # port: 6379
+    # conf: /usr/local/etc/redis/redis.conf
+    redis:
+        image: redis:3.2
+        container_name: container-redis
+        restart: always
+        ports:
+            - 6379:6379
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
