@@ -33,7 +33,7 @@ services:
         environment:
             - ETCDCTL_API=3
         volumes:
-            - ${DATA_DIR}:/etcd-data
+            - ./runtime/etcd-01:/etcd-data
         command:  >-
             /usr/local/bin/etcd
             --data-dir=/etcd-data
