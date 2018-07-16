@@ -1,5 +1,30 @@
 version: '3'
 services:
+    comet-monitor-01:
+        image: comet
+        build:
+            context: ./comet
+            dockerfile: Dockerfile
+        volumes:
+            - ./comet/comet.ini:/data/comet.ini:ro
+        command: -c /data/comet.ini -m
+        depends_on:
+            - etcd-01
+
+    comet-01:
+        image: comet
+        build:
+            context: ./comet
+            dockerfile: Dockerfile
+        volumes:
+            - ./comet/comet.ini:/data/comet.ini:ro
+        ports:
+            - 8900:8900
+            - 8901:8901
+        command: -c /data/comet.ini
+        depends_on:
+            - etcd-01
+
     etcd-01:
         image: quay.io/coreos/etcd:v3.3.1
         ports:
