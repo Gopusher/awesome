@@ -18,7 +18,7 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./comet/comet.ini:/data/comet.ini:ro
-            - /data/docker-dev/runtime/nginx/conf.d/certs:/data/certs:ro
+            # - /data/docker-dev/runtime/nginx/conf.d/certs:/data/certs:ro
         ports:
             - 8900:8900
             - 8901:8901
