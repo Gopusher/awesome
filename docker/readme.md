@@ -1,11 +1,5 @@
 # Run with Docker Compose
 
-###  Config Docker Env
-
-```
-vi .env 
-```
-
 ### Config Comet
 
 ```
