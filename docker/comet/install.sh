@@ -3,7 +3,7 @@
 # exit if a command fails
 set -e
 
-comet_source_url=https://github.com/Gopusher/awesome/releases/download/0.0.1/comet
+comet_source_url=https://github.com/Gopusher/comet/releases/download/0.0.1/comet-for-debian
 
 # install curl (needed to install rust)
 apt-get update && apt-get install -y wget
