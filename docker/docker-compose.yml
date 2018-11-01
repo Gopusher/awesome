@@ -10,6 +10,7 @@ services:
         command: -c /data/comet.ini -m
         depends_on:
             - etcd-01
+            - comet-01
 
     comet-01:
         image: comet
@@ -24,7 +25,6 @@ services:
             - 8901:8901
         command: -c /data/comet.ini
         depends_on:
-            - comet-monitor-01
             - etcd-01
 
     etcd-01:
