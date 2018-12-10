@@ -3,14 +3,14 @@
 # exit if a command fails
 set -e
 
-comet_source_url=https://github.com/Gopusher/comet/releases/download/0.0.1/comet-for-debian
+comet_source_url=https://github.com/Gopusher/gateway/releases/download/0.1.2/comet-for-linux
 
 # install curl (needed to install rust)
 apt-get update && apt-get install -y wget
 
 cd /usr/local/bin/
 
-wget --no-check-certificate -O gopusher-comet ${comet_source_url}
+wget --no-check-certificate -O gopusher ${comet_source_url}
 
 chmod u+x gopusher-comet
 

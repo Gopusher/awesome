@@ -1,9 +1,9 @@
 # Run with Docker Compose
 
-### Config Comet
+### Config Gateway
 
 ```
-vi comet/comet.ini
+vi comet/.env
 ```
 
 ### Run

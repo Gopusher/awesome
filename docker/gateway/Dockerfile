@@ -9,4 +9,4 @@ EXPOSE 8901
 
 VOLUME /data
 
-ENTRYPOINT ["gopusher-comet"]
+ENTRYPOINT ["gopusher"]

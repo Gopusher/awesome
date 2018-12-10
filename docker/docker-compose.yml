@@ -1,48 +1,17 @@
 version: '3'
 services:
-    comet-monitor-01:
+    comet:
         image: comet
         build:
-            context: ./comet
+            context: ./gateway
             dockerfile: Dockerfile
         volumes:
-            - ./comet/comet.ini:/data/comet.ini:ro
-        command: -c /data/comet.ini -m
-        depends_on:
-            - etcd-01
-            - comet-01
-
-    comet-01:
-        image: comet
-        build:
-            context: ./comet
-            dockerfile: Dockerfile
-        volumes:
-            - ./comet/comet.ini:/data/comet.ini:ro
+            - ./comet/.env:/data/.env:ro
             # - /data/docker-dev/runtime/nginx/conf.d/certs:/data/certs:ro
         ports:
             - 8900:8900
             - 8901:8901
-        command: -c /data/comet.ini
-        depends_on:
-            - etcd-01
-
-    etcd-01:
-        container_name: container-etcd
-        image: quay.io/coreos/etcd:v3.3.1
-        environment:
-            - ETCDCTL_API=3
-        volumes:
-            - ./runtime/etcd-01:/etcd-data
-        command:  >-
-            /usr/local/bin/etcd
-            --data-dir=/etcd-data
-            -name etcd-01
-            -advertise-client-urls http://container-etcd:2379
-            -listen-client-urls http://0.0.0.0:2379
-            -initial-advertise-peer-urls http://container-etcd:2380
-            -listen-peer-urls http://0.0.0.0:2380
-            -initial-cluster etcd-01=http://container-etcd:2380
+        command: -c /data/.env
 
     # 说明:
     # port: 6379
