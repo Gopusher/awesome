@@ -12,7 +12,7 @@ cd /usr/local/bin/
 
 wget --no-check-certificate -O gopusher ${comet_source_url}
 
-chmod u+x gopusher-comet
+chmod u+x gopusher
 
 # cleanup package manager
 apt-get remove --purge -y wget && apt-get autoclean && apt-get clean
