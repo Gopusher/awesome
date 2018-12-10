@@ -1,7 +1,7 @@
 version: '3'
 services:
     comet:
-        image: comet
+        image: gopusher
         build:
             context: ./gateway
             dockerfile: Dockerfile
