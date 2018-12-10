@@ -1,12 +1,12 @@
 version: '3'
 services:
-    comet:
+    gopusher:
         image: gopusher
         build:
             context: ./gateway
             dockerfile: Dockerfile
         volumes:
-            - ./comet/.env:/data/.env:ro
+            - ./gateway/.env:/data/.env:ro
             # - /data/docker-dev/runtime/nginx/conf.d/certs:/data/certs:ro
         ports:
             - 8900:8900
